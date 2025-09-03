@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prof. Ahmad Pervez - Portfolio</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap"></noscript>
+    
+    <style>
+    /*
+     *
+     * Custom Styles - Retaining your original design
+     *
+     */
+
+    :root {
+        --light-bg: #F5F7FA;
+        --card-bg: #FFFFFF;
+        --nav-bg: #F0F4F8; 
+        --dark-text: #2C3E50;
+        --main-blue: #0056b3;
+        --royal-blue: #4169E1;
+        --accent-yellow: #FFC107;
+        --deep-navy: #0A192F;
+        --sober-text: #5E6A77;
+        --border-radius: 12px;
+        --shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        --navbar-height: 5rem;
+    }
+
+    body {
+        font-family: 'Montserrat', sans-serif;
+        line-height: 1.6;
+        background-color: var(--light-bg);
+        color: var(--dark-text);
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3 {
+        font-family: 'Playfair Display', serif;
+        color: var(--deep-navy);
+        font-weight: 700;
+        text-wrap: balance; 
+    }
+    
+    h1 {
+        font-size: clamp(2.5em, 5vw, 3.5em);
+        margin-bottom: 0.2em;
+    }
+
+    h2 {
+        font-size: clamp(2em, 4vw, 2.5em);
+        border-bottom: 3px solid var(--main-blue);
+        padding-bottom: 10px;
+        margin-top: 2em;
+        margin-bottom: 1.5em;
+        display: inline-block;
+    }
+
+    p, li {
+        font-size: 1.1em;
+        color: var(--sober-text);
+        line-height: 1.8;
+    }
+
+    strong {
+        color: var(--main-blue);
+    }
+    
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .navbar-container {
+        background-color: var(--nav-bg);
+        box-shadow: var(--shadow);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .logo a {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.8em;
+        font-weight: 700;
+        color: var(--deep-navy);
+        text-decoration: none;
+        transition: color 0.3s ease, transform 0.3s ease;
+        line-height: 1.2;
+    }
+
+    .logo a:hover {
+        color: var(--main-blue);
+        transform: scale(1.05);
+    }
+
+    .nav-link {
+        color: var(--dark-text) !important;
+        font-weight: 900;
+        font-size: 1.1em;
+        padding: 0.5rem 1rem;
+        position: relative;
+        transition: color 0.3s ease, border-color 0.3s ease;
+        border: 2px solid transparent;
+    }
+    
+    .nav-link:hover {
+        border-color: var(--royalblue-bg);
+    }
+    
+    .nav-link.active {
+        border-color: var(--royalblue-bg);
+    }
+
+    .hero-section {
+        padding-top: var(--navbar-height);
+    }
+    
+    .profile-pic {
+        width: clamp(200px, 30vw, 250px);
+        height: clamp(200px, 30vw, 250px);
+        object-fit: cover;
+        border-radius: 50%;
+        border: 5px solid white;
+        box-shadow: var(--shadow);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .profile-pic:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .about-table-container {
+        margin-bottom: 2rem;
+        overflow-x: auto;
+    }
+
+    .about-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 1.1em;
+        color: var(--dark-text);
+    }
+
+    .about-table tr {
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .about-table tr:last-child {
+        border-bottom: none;
+    }
+
+    .about-table td {
+        padding: 10px 0;
+        vertical-align: top;
+    }
+
+    .about-table td:first-child {
+        width: 150px;
+        font-weight: 600;
+        color: var(--deep-navy);
+    }
+
+    .about-table strong {
+        color: var(--dark-text);
+    }
+
+    .download-button {
+        background-color: var(--main-blue);
+        color: white;
+        padding: 15px 30px;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: var(--border-radius);
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        border: none;
+        font-size: 1.2em;
+        margin-top: 1rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .download-button:hover {
+        background-color: #003366;
+        transform: translateY(-2px);
+    }
+
+    .content-section {
+        background-color: var(--card-bg);
+        padding: 2.5rem;
+        margin-bottom: 2rem;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+        border-left: 5px solid var(--main-blue);
+    }
+
+    .publication-stats {
+        background-color: #F8F9FA;
+        border-left: 4px solid var(--accent-yellow);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-radius: var(--border-radius);
+    }
+
+    .publication-stats p {
+        margin: 0.5rem 0;
+        font-weight: 700;
+        color: var(--dark-text);
+    }
+
+    .pub-table-container {
+        overflow-x: auto;
+    }
+
+    .publication-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1.5rem;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .publication-table th, .publication-table td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        font-size: 0.9em;
+    }
+
+    .publication-table th {
+        background-color: var(--deep-navy);
+        color: white;
+        font-weight: 700;
+    }
+    
+    .publication-table tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .publication-table tbody tr:hover {
+        background-color: #eef5ff;
+    }
+
+    .contact-info a, .contact-info p {
+        color: var(--sober-text);
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .contact-info a:hover {
+        color: var(--main-blue);
+    }
+
+    .footer {
+        text-align: center;
+        padding: 1.5rem;
+        background-color: var(--deep-navy);
+        color: var(--light-bg);
+        margin-top: 2rem;
+    }
+    </style>
+</head>
+<body>
+
+    <header class="navbar-container">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid d-flex justify-content-between align-items-center">
+                <div class="logo">
+                    <a class="navbar-brand p-0" href="#home">Prof.<br>Ahmad Pervez</a>
+                </div>
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse flex-grow-0" id="navbarNav">
+                    <ul class="navbar-nav gap-2 gap-lg-4">
+                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#research">Research</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#publications">Publications</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#awards">Awards</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section id="home" class="hero-section d-flex flex-column flex-md-row align-items-center text-center text-md-start gap-5">
+            <div class="hero-content">
+                <h1>PROF. AHMAD PERVEZ</h1>
+                <p>Professor & Director (Research Studies), Department of Zoology</p>
+                <p>Sri Dev Suman Uttarakhand University, Rishikesh</p>
+            </div>
+            <div class="hero-image flex-shrink-0">
+                <img src="image.png" alt="Prof. Ahmad Pervez" class="profile-pic">
+            </div>
+        </section>
+
+        <section id="about" class="content-section">
+            <h2>About</h2>
+            <div class="about-table-container">
+                <table class="about-table">
+                    <tbody>
+                        <tr>
+                            <td><strong>Name</strong></td>
+                            <td>: Prof. Ahmad Pervez</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Designation</strong></td>
+                            <td>: Professor</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Qualification</strong></td>
+                            <td>: Ph. D.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Email</strong></td>
+                            <td>: ahmadpervez@yahoo.com</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Blood Group</strong></td>
+                            <td>: O+</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>Prof. Ahmad Pervez is working as a <strong>Professor</strong> in Zoology Department, and <strong>Director (Research Studies)</strong> at Pt. L.M.S. Rishikesh Campus, Sri Dev Suman Uttarakhand University. He received <strong>Bhakt Darshan Higher Education Honour Award for Science</strong> from Govt. of Uttarakhand, and the <strong>Excellent Teacher Award</strong> for Zoology on the occasion of the 3rd International Conference on Sustainable Development Initiatives in South East Asia in Kathmandu, Nepal. Furthermore, he is a recipient of the <strong>Young Scientist Award in Zoology</strong> from the 3rd Uttarakhand State Science and Technology Conference held at IIT, Roorkee. He has published one book, 101 research papers, 30 book chapters, and 5 popular science articles in reputed journals. He is an <strong>Associate Editor of a prestigious international journal, Frontiers (Frontiers in Ecology and Evolution)</strong>, <strong>Executive Editor of Annals of Science and Allied Research</strong>, <strong>Section Editor, Probe (Animal Science) from Universe Scientific Publisher</strong>, and on editorial boards on many academic journals. He visited SIX countries (Italy, Canada, Malaysia, Thailand, Nepal and Indonesia) and is a <strong>Life Member of SIX academic bodies</strong>. He has completed <strong>FIVE (4 Major and 1 Minor) research projects funded by SERC, SERB and UGC</strong> and is associated with more than TWENTY-FIVE research journals of international repute, as a reviewer. He participated in more than FIFTY International and National Conferences and is a <strong>Coordinator of the Oriental Region for preparing a list of Endangered and Flagship for the Conservation of Ladybird</strong> species by the International Union for Conservation of Nature Species Survival Commission (IUCN SSC). Under his supervision, FOUR Ph.D.s have been awarded, TWO are in the submission phase, while TWO are ongoing.</p>
+        </section>
+        
+        <section id="research" class="content-section">
+            <h2>Research</h2>
+            <div class="content-item">
+                <h3>Area of Research</h3>
+                <p>Entomology (Biological Control of Aphid Pests).</p>
+            </div>
+            <div class="content-item">
+                <h3>Ph. D. Thesis</h3>
+                <p>His Ph.D. thesis is titled "Contribution on Prey-predator Relationship and Reproductive Biology of a colour morph of Propylea dissecta (Mulsant) (Coccinellidae: Coleoptera)".</p>
+            </div>
+        </section>
+
+        <section id="publications" class="content-section">
+            <h2>Publications</h2>
+            <div class="publication-stats">
+                <h3>Citations and Indices</h3>
+                <p>Google Scholar Citation: <strong>1968</strong>, h- index = <strong>24</strong>, i10 index $=46$</p>
+                <p>Research Gate Citation: <strong>1942</strong>, h- index $=25$</p>
+                <p>Scopus Citation: <strong>1125</strong>, h-index $=20$</p>
+                <p>Web of Science Citation: <strong>837</strong>, h- index $=20$</p>
+            </div>
+            <div class="publication-list">
+                <h3>Book Chapters and Books</h3>
+                <div class="pub-table-container">
+                    <table class="publication-table">
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Title</th>
+                                <th>Journal/Book</th>
+                                <th>Year</th>
+                                <th>Category</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Book</td><td>Gender roles and Green Concepts: Pathways to environmental sustainability, Vol. I.</td><td>Gender roles and Green Concepts</td><td>2024</td><td>International</td><td>Any Other</td></tr>
+                            <tr><td>Book</td><td>Gender roles and Green Concepts: Pathways to environmental sustainability, Vol. II.</td><td>Gender roles and Green Concepts: Pathways to environmental sustainability, Vol. II.</td><td>2024</td><td>International</td><td>Peer Reviewed</td></tr>
+                            <tr><td>Book</td><td>Concepts of Toxicology</td><td>Concepts of Toxicology Third Edition</td><td>2017</td><td>National</td><td>Peer Reviewed</td></tr>
+                            <tr><td>Book Chapter</td><td>Gut Microbiome in Predaceous Coccinellids: Benefits and Challenges.</td><td>In: Ali Bilgili (ed.) New Current Topics in Biological Sciences.</td><td>2024</td><td>International</td><td>Peer Reviewed</td></tr>
+                            <tr><td>Book Chapter</td><td>Gut Microbiome in Predaceous Coccinellids: Benefits and Challenges.</td><td>In: Ali Bilgili (ed.) New Current Topics in Biological Sciences.</td><td>2024</td><td>International</td><td>Peer Reviewed</td></tr>
+                            <tr><td>Book Chapter</td><td>Insects In Complementary And Alternative Medicine: Current Status And Future Scope</td><td>In: Hasan Akgul (ed.) International Studies And Evaluations In The Field Of Biology, Mah. Fevzi Çakmak 1.</td><td>2024</td><td>International</td><td>Peer Reviewed</td></tr>
+                            <tr><td>Book Chapter</td><td>Chapter 4. In: Nitish Kumar (Ed) Heavy Metal Toxicity: Human Health Impact and Mitigation Strategies. , pp. 99-128. ISBN 978-3-031-56641-7, ISBN 978-3-031-56642-4 (eBook). Environmental Science and Engineering :Impacts of Heavy Metals Contamination on Human Health,</td><td>Environmental Science and Engineering :Impacts of Heavy Metals Contamination on Human Health,</td><td>2024</td><td>International</td><td>Peer Reviewed</td></tr>
+                            <tr><td>Book Chapter</td><td>Role Of Ladybirds In Food Security And Environmental Security.</td><td>In Nilofar Akhtar and Ahmad Pervez (eds). Gender roles and green concepts: pathways to environmental sustainability. Vol. II. https://doi.org/10.31995/Book.AB306-M24.Chapter3.</td><td>2024</td><td>International</td><td>Peer Reviewed</td></tr>
+                            <tr><td>Book Chapter</td><td>Oviposition Behaviour Of Predaceous Ladybird Beetles: A Review.</td><td>In Nilofar Akhtar and Ahmad Pervez (eds). Gender roles and green concepts: pathways to environmental sustainability. Vol. II. Anu Books. Delhi, Meerut, Glasgow. . https://doi.org/10.31995/Book.AB306-M24.Chapter17.</td><td>2024</td><td>International</td><td>Peer Reviewed</td></tr>
+                            <tr><td>Book Chapter</td><td>Our immune system is against us: et tu Cytokines.</td><td>In Nilofar Akhtar and Ahmad Pervez (eds). Gender roles and green concepts: pathways to environmental sustainability. Vol. II. Anu Books. Delhi, Meerut, Glasgow. . https://doi.org/10.31995/Book.AB306-M24.Chapter17.</td><td>2024</td><td>International</td><td>Peer Reviewed</td></tr>
+                            <tr><td>Book Chapter</td><td>Egg cannibalism and intraguild predation of Coccinella species by an aphidophagous coccinellid, Coelophora saucia (Mulsant).</td><td>Proc. Int. Cankaya Sci studies Cong. , Aankara-Türkiye. (ed.) Figen Yardimci.</td><td>2023</td><td>International</td><td>Peer Reviewed</td></tr>
+                            <tr><td>Book Chapter</td><td>Global invasion of Harmonia axiridis: current status.</td><td>Proc. Int. Cankaya Sci studies Cong. , Aankara-Türkiye. (ed.) Figen Yardimci.</td><td>2023</td><td>International</td><td>Peer Reviewed</td></tr>
+                            <tr><td>Book Chapter</td><td>Reproductive Health and Family Welfare in India.</td><td>In : (eds) M Yadav and Brototi Roy. A Comprehensive Textbook of Human Reproductive Biology and Health.</td><td>2023</td><td>National</td><td>Peer Reviewed</td></tr>
+                            <tr><td>Book Chapter</td><td>Nanomaterials in the environment: impacts and challenges</td><td>Seema Sahadevan, Akhilesh Rai and Santosh Kumar (eds.). Nanomaterial-Plant Interaction: Nanoparticles and plant-microbe interactions: An environmental perspective</td><td>2023</td><td>International</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Book Chapter</td><td>Plants and Microbial Nanotoxicology</td><td>Seema Sahadevan, Akhilesh Rai and Santosh Kumar (eds.). Nanomaterial-Plant Interaction: Nanoparticles and plant-microbe interactions: An environmental perspective</td><td>2023</td><td>International</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Book Chapter</td><td>Insect Pests Management</td><td>In: (ed.) Manoj Kumar Arya. Biodiversity, Environment And Ecosystem Services</td><td>2023</td><td>National</td><td>Peer Reviewed</td></tr>
+                            <tr><td>Book Chapter</td><td>Ecology and Behaviour of Predaceous Ladybird Beetles (Coleoptera Coccinellidae).</td><td>In: (ed.) Manoj Kumar Arya. Biodiversity, Environment And Ecosystem Services</td><td>2023</td><td>National</td><td>Peer Reviewed</td></tr>
+                            <tr><td>Book Chapter</td><td>Human Population Growth and Dynamics</td><td>In : eds M Yadav and Brototi Roy. A Comprehensive Textbook of Human Reproductive Biology and Health</td><td>2023</td><td>National</td><td>Peer Refereed</td></tr>
+                            <tr><td>Book Chapter</td><td>Insects in the modern world</td><td>In: (ed) Dr. Feyza Döndü Bilgin, Resilient Agriculture With The Help Of Crop Diversification.</td><td>2022</td><td>International</td><td>Peer Refereed</td></tr>
+                            <tr><td>Book Chapter</td><td>Travel to the Past in Entomology in India</td><td>In: ed Mustafa Kahyaoglu. Multidisciplinary perspectives in education and social sciences III.</td><td>2022</td><td>International</td><td>Peer Refereed</td></tr>
+                            <tr><td>Book Chapter</td><td>Courtship.</td><td>In: Eds. Omkar and Mishra, G. Reproduction in Insects,</td><td>2021</td><td>International</td><td>Peer Refereed</td></tr>
+                            <tr><td>Book Chapter</td><td>Coccinellids on Crops: Nature’s Gift for Farmers.</td><td>In: Akshay Kumar Chakravarty (Ed.) Innovative Pest Management Approaches for the 21st Century: Harnessing Automated Unmanned Technologies.</td><td>2020</td><td>International</td><td>Peer Refereed</td></tr>
+                            <tr><td>Book Chapter</td><td>Termite Biology and Social Behaviour</td><td>In: M.A. Khan & W. Ahmad (Eds.), Sustainable Termite Management, Sustainability in Plant and Crop Protection Vol. I.</td><td>2018</td><td>International</td><td>Peer Refereed</td></tr>
+                            <tr><td>Book Chapter</td><td>Culture of using old agricultural practices can be a solution for the hazardous chemical pesticides.</td><td>In: Indian Culture at a glance. Edited by Dr. Seraj Mohammad,</td><td>2017</td><td>National</td><td>Peer Reviewed</td></tr>
+                            <tr><td>Book Chapter</td><td>Ladybird Beetles.</td><td>In: Ecofriendly Pest Management for Food Security. (Ed. Omkar).</td><td>2016</td><td>International</td><td>Peer Refereed</td></tr>
+                            <tr><td>Book Chapter</td><td>Predaceous Ladybirds – An ecofriendly option for the aphid pest management: A review”</td><td>In: Environmental Economics and Social Sustainability, eds. Prem Prakash & Narendra Kumar Singh,</td><td>2015</td><td>National</td><td>Peer Reviewed</td></tr>
+                            <tr><td>Book Chapter</td><td>Biocontrol of Aphids using Two Species of Predatory Ladybirds.</td><td>Science and Technology in Uttarakhand (eds.) Dobhal, R., Uniyal, D.P. & Purohit, B.P.</td><td>2012</td><td>National</td><td>Peer Reviewed</td></tr>
+                            <tr><td>Book Chapter</td><td>Predation dynamics of ladybirds and aphid biocontrol: A review.</td><td>Zoology and Human Welfare (Ed. Ashok Verma,</td><td>2004</td><td>National</td><td>Peer Reviewed</td></tr>
+                            <tr><td>Book Chapter</td><td>Bio-attributes of Predaceous Coccinellids: A Review.</td><td>Perspectives in Animal Ecology and Reproduction Volume II (Ed. V.K. Gupta & A.K. Verma).</td><td>2004</td><td>National</td><td>Peer Reviewed</td></tr>
+                            <tr><td>Book Chapter</td><td>ICoccinellids in Insect Pest Management.</td><td>Biopesticides and Bioagents in Integrated Pest Management of Agricultural Crops (Srivastava, R.P., Ed.).</td><td>2003</td><td>National</td><td>Peer Reviewed</td></tr>
+                            <tr><td>Book Chapter</td><td>Reproduction in predatory ladybeetles (Coleoptera: Coccinellidae): a review.</td><td>In: Perspectives in Animal Ecology and Reproduction Vol. I, (Eds. Gupta, V.K., Verma, A.K. & Sharma, J.P.),</td><td>2002</td><td>National</td><td>Peer Reviewed</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="publication-list">
+                <h3>Journal Papers</h3>
+                <div class="pub-table-container">
+                    <table class="publication-table">
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Paper Title</th>
+                                <th>Journal</th>
+                                <th>Year</th>
+                                <th>Category</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Journal</td><td>Dynamics of intraguild predation in coccinellids: molecular insights</td><td>Arthropod-Plant Interactions</td><td>2025</td><td>International</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Distribution And Prey-Predator Catalogue Of Genus Oenopia Mulsant 1850 (Coleoptera: Coccinellidae) From Uttarakhand.</td><td>Annals of Science and Allied Research</td><td>2024</td><td>National Journal</td><td>Peer Reviewed</td></tr>
+                            <tr><td>Journal</td><td>First Report on Natural enemies of Pieris brassicae from Kumaun Terai, Uttarakhand.</td><td>Annals of Science and Allied Research</td><td>2024</td><td>National Journal</td><td>Peer Reviewed</td></tr>
+                            <tr><td>Journal</td><td>How Do Chemicals Affect Butterflies and the Environment?</td><td>Annals of Science and Allied Research</td><td>2024</td><td>National Journal</td><td>Peer Reviewed</td></tr>
+                            <tr><td>Journal</td><td>Virgin Males Are Better Mating Partners Than The Experienced Ones: A Case Study Of Menochilus sexmaculatus (Coleoptera: Coccinellidae).</td><td>Annals of Science and Allied Research</td><td>2024</td><td>National Journal</td><td>Peer Reviewed</td></tr>
+                            <tr><td>Journal</td><td>Ichthyofaunal diversity in relation with fish farming and water quality of a North Indian Pond, Ram Tal Vatika.</td><td>Annals of Science and Allied Research</td><td>2024</td><td>National Journal</td><td>Peer Reviewed</td></tr>
+                            <tr><td>Journal</td><td>An Overview Of Sexual Activity And Mating Issues In Predatory Ladybird Beetles (Coleoptera: Coccinellidae).</td><td>Annals of Science and Allied Research</td><td>2024</td><td>National Journal</td><td>Peer Reviewed</td></tr>
+                            <tr><td>Journal</td><td>Morphological Attributes Of Six Coccinellid Beetles Recorded From Udham Singh Nagar District Of Uttarakhand, India.</td><td>Annals of Science and Allied Research</td><td>2024</td><td>National Journal</td><td>Peer Reviewed</td></tr>
+                            <tr><td>Journal</td><td>Enhancing Fish Feeding Methods And Formulating Nutritious Feed for the growth of Labeo rohita.</td><td>Journal of Mountain Research.</td><td>2024</td><td>National Journal</td><td>Peer Reviewed</td></tr>
+                            <tr><td>Journal</td><td>Comprehensive foraging behavior of acarophagous ladybird, Stethorus gilvifrons (Coleoptera: Coccinellidae) on Tetranychus urticae (Trombidiformes: Tetranychidae): Implications for biological control.</td><td>Int J Trop Insect Sci</td><td>2024</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Diet and body size modulate the Re-mating Behaviour and Reproduction of a Predaceous Ladybird, Coccinella transversalis.</td><td>Entomon</td><td>2024</td><td>National Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Role of relatedness, food quality and hunger on the avoidance of kin-cannibalism in higher instars of coccinellids.</td><td>Arthropod-Plant Interactions.</td><td>2024</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Spotlight On The Agripreneurial Significance Of Insects In India.</td><td>Annals of Science and Allied Research.</td><td>2023</td><td>National Journal</td><td>Peer Reviewed</td></tr>
+                            <tr><td>Journal</td><td>Overview of the reproductive behaviour and development of aphidophagous ladybird beetles.</td><td>Annals of Science and Allied Research.</td><td>2023</td><td>National Journal</td><td>Peer Reviewed</td></tr>
+                            <tr><td>Journal</td><td>Diversity of Aphididae of Uttarakhand. Arch.nnals of Science and Allied Resea</td><td>Annals of Science and Allied Resea</td><td>2023</td><td>National Journal</td><td>Peer Reviewed</td></tr>
+                            <tr><td>Journal</td><td>Intraguild Predation and Cannibalism between two co-occurring ladybird species (Coccinella septempunctata and Menochilus sexmaculatus): A Fight for Supremacy.</td><td>Probe, Animal Science</td><td>2023</td><td>International Journal</td><td>Peer Reviewed</td></tr>
+                            <tr><td>Journal</td><td>Intraguild Predation of inferior larval stages of the two aphidophagous ladybirds.</td><td>Entomon</td><td>2022</td><td>National</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Impact of egg-quality and its laying pattern on the fate of egg-cannibalism and intraguild predation in ladybirds</td><td>Journal of Entomology and Zoology Studies</td><td>2022</td><td>National</td><td>UGC Listed Journal</td></tr>
+                            <tr><td>Journal</td><td>Prey preference of an aphidophagous ladybird, Coccinella transversalis (Coccinellidae: Coleoptera) on two aphid species</td><td>Journal of Entomology and Zoology Studies</td><td>2022</td><td>National</td><td>UGC Listed Journal</td></tr>
+                            <tr><td>Journal</td><td>Influence of Functional response on the bodyweight of a biological control agent, Coccinella transversalis Fabricius (Coleoptera: Coccinellidae).</td><td>Journal of Entomology and Zoology Studies</td><td>2022</td><td>National</td><td>UGC Listed Journal</td></tr>
+                            <tr><td>Journal</td><td>Courtship behaviour and mating refusals in an aphidophagous ladybird, Coccinella transversalis</td><td>International Journal of Tropical Insect Science</td><td>2022</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Functional morphology of mouthparts and antennal sensillae of two co-generic aphidophagous ladybirds</td><td>International Journal of Tropical Insect Science</td><td>2022</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Reproductive Behaviour of predaceous ladybirds (Coleoptera: Coccinellidae): A review</td><td>International Journal of Tropical Insect Science</td><td>2022</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Food preference, growth and development of three aphidophagous ladybirds preying on conspecific and heterospecific eggs</td><td>International Journal of Tropical Insect Science</td><td>2022</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Variation in reproductive attributes and diapause behaviour among selected populations of Zygogramma bicolorata Pallister</td><td>International Journal of Tropical Insect Science</td><td>2022</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Cumulative functional responses of larvae and adults of two aphidophagous ladybirds.</td><td>International Journal of Tropical Insect Science</td><td>2022</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Effect of dietary history on intraguild predation and cannibalism of ladybirds’ eggs</td><td>International Journal of Tropical Insect Science</td><td>2021</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Influence of intraspecific competition for food on the bodyweight of the adult aphidophagous ladybird, Coccinella transversalis</td><td>European Journal of Environmental Sciences</td><td>2021</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Physiology of Thyroid Hormones and the associated modelling: A review.</td><td>Scientific Research Journal of Multidisciplinary,</td><td>2021</td><td>National</td><td>Peer Refereed</td></tr>
+                            <tr><td>Journal</td><td>Manipulating mate-choice for a quantitative augmentation of a biological control agent, Coccinella transversalis Fabricius</td><td>Vantage: Journal of Thematic Analysis</td><td>2021</td><td>National</td><td>Peer Refereed</td></tr>
+                            <tr><td>Journal</td><td>Functional Morphology and characters of five abundant species of ladybirds (Coleoptera: Coccinellidae).</td><td>Journal of Mountain Research</td><td>2021</td><td>National</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Kin-Recognition by the adults of a biological control agent, Propylea dissecta (Coleoptera: Coccinellidae).</td><td>Journal of Biological Control</td><td>2020</td><td>National</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Biodiversity of Predaceous Coccinellidae (Coleoptera) in Uttarakhand, North India.</td><td>Journal of Mountain Research</td><td>2020</td><td>National</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Antennal Morphology and Sensilla in predaceous ladybirds, Menochilus sexmaculatus and Propylea dissecta</td><td>European Journal of Environmental Sciences</td><td>2020</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Mating behavior of the predaceous ladybird, Harmonia dimidiata</td><td>European Journal of Environmental Sciences</td><td>2020</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Reproduction and demography of an aphidophagous ladybird, Hippodamia variegata on different nutritive and toxic prey</td><td>International Journal of Tropical Insect Science</td><td>2020</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Biological control of Aphis craccivora (Koch) with predaceous ladybird, Hippodamia variegata (Goeze).</td><td>Indian Journal of Ecology</td><td>2019</td><td>National Journal</td><td>UGC Listed Journal</td></tr>
+                            <tr><td>Journal</td><td>Biodiversity Indices and Distribution of Predaceous Coccinellidae (Coleoptera) of Uttarakhand, North India</td><td>Biodiversity Journal</td><td>2019</td><td>International Journal</td><td>UGC Listed Journal</td></tr>
+                            <tr><td>Journal</td><td>Cognizance about menstruation among urban young women of Delhi-NCR: A socio-cultural perception.</td><td>Journal of Basic and Clinical Reproductive Biology.</td><td>2018</td><td>International</td><td>Peer Reviewed</td></tr>
+                            <tr><td>Journal</td><td>Incidence of Egg-Cannibalism by Stage-Specific kins of Two Predaceous Ladybirds (Coleoptera: Coccinellidae).</td><td>Journal of Mountain Research</td><td>2018</td><td>National Journal</td><td>UGC Listed Journal</td></tr>
+                            <tr><td>Journal</td><td>Biocontrol, An ecofriendly pest management technique.</td><td>Everyman’s Science</td><td>2018</td><td>National Journal</td><td>Peer Reviewed</td></tr>
+                            <tr><td>Journal</td><td>Ecological perspective of the diversity of functional responses</td><td>European Journal of Environmental Sciences</td><td>2018</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Foraging behaviour of predaceous ladybird beetles: a review</td><td>European Journal of Environmental Sciences</td><td>2018</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Demographic parameters of a predaceous ladybird, Hippodamia variegata (Goeze) on aphid, Aphis craccivora (Koch) reared on four host-plants.</td><td>Egyptian Journal of Biological Pest Control</td><td>2018</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Host plant mediated prey preference and consumption by an aphidophagous ladybird, Menochilus sexmaculatus (Fabricius).</td><td>Egyptian Journal of Biological Pest Control</td><td>2018</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Effect of nutritious and toxic prey on food preference of a predaceous ladybird, Coccinella septempunctata.</td><td>European Journal of Entomology</td><td>2017</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Toxicity of Nano-materials to Environment and mankind: an overview</td><td>International Journal of Pharmaceutical Research</td><td>2017</td><td>National Journal</td><td>UGC Listed Journal</td></tr>
+                            <tr><td>Journal</td><td>Intraguild Predation of Eggs by Predaceous Ladybirds, Propylea dissecta and Menochilus sexmaculatus.</td><td>Journal of Mountain Research</td><td>2017</td><td>National Journal</td><td>UGC Listed Journal</td></tr>
+                            <tr><td>Journal</td><td>Preference of the aphidophagous ladybird, Propylea dissecta for two species of aphids reared on toxic host plants.</td><td>European Journal of Environmental Sciences</td><td>2017</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Implications of fluoride toxicity on the male reproductive system: a Review.</td><td>Journal of Mountain Research</td><td>2016</td><td>National Journal</td><td>UGC Listed Journal</td></tr>
+                            <tr><td>Journal</td><td>Improved SAS codes for life table analysis of arthropod Populations.</td><td>Revista Da Estatistica UFOP</td><td>2015</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Inference on Arthropod Demographic Parameters: Computational Advances using R.</td><td>Journal of Economic Entomology</td><td>2014</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Mating patterns in the aphidophagous Ladybird, Hippodamia variegata, depend on body size.</td><td>European Journal of Environmental Sciences</td><td>2013</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Demographic attributes of Parthenium beetle, Zygogramma bicolorata (Coleoptera: Chrysomelidae) under different variables</td><td>International Journal of Tropical Insect Science</td><td>2013</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Life-table of Parthenium beetle, Zygogramma bicolorata (Coleoptera: Chrysomellidae) under different factors</td><td>Acta Entomologica Sinica</td><td>2013</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Stage specific Functional Response of an aphidophagous ladybird, Coccinella septempunctata L. on two aphid species</td><td>International Journal of Tropical Insect Science</td><td>2012</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Ecology of an aphidophagous ladybird Propylea: A Review</td><td>Journal of Asia Pacific Entomology</td><td>2011</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Duration of Development and Survival of larvae of Coccinella transversalis fed on essential and alternative foods.</td><td>European Journal of Environmental Sciences</td><td>2011</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Mate choice and Polyandry benefits reproduction and progeny fitness in the ladybird, Hippodamia variegata (Goeze).</td><td>European Journal of Environmental Sciences</td><td>2011</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Functional Response of two aphidophagous ladybirds searching in tandem</td><td>Biocontrol Science and Technology</td><td>2011</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Antennal sensillae of an aphidophagous ladybird, Propylea dissecta.</td><td>Journal of Applied Bioscience</td><td>2008</td><td>National Journal</td><td>Peer Reviewed</td></tr>
+                            <tr><td>Journal</td><td>Sibling cannibalism in aphidophagous ladybirds: Its impact on sex-dependent development and body weight</td><td>Journal of Applied Entomology</td><td>2007</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Influence of mating duration on fecundity and fertility of two aphidophagous ladybirds.</td><td>Journal of Applied Entomology</td><td>2006</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Attack, escape and predation rates of the larvae of two aphidophagous ladybirds during conspecific and heterospecific interactions</td><td>Biocontrol Science and Technology</td><td>2006</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Why do neonates of aphidophagous ladybirds preferentially consume conspecific eggs in presence of aphids?</td><td>Biocontrol Science and Technology</td><td>2006</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Larval cannibalism in aphidophagous ladybirds: Influencing factors, benefits & costs.</td><td>Biological Control</td><td>2006</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Ecology and Biological control application of multicoloured Asian Ladybird, Harmonia axyridis: A Review</td><td>Biocontrol Science and Technology</td><td>2006</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Egg Cannibalism and Intraguild Predation in Two Co-occurring Generalist Ladybirds: A Laboratory Study</td><td>International Journal of Tropical Insect Science</td><td>2005</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Ecology of Two-Spotted Aphidophagous Ladybird, Adalia bipunctata: A review.</td><td>Journal of Applied Entomology</td><td>2005</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Records of two aphidophagous ladybirds from Uttar Pradesh.</td><td>Insect Environment</td><td>2005</td><td>National Journal</td><td>Peer Reviewed</td></tr>
+                            <tr><td>Journal</td><td>Functional response of coccinellid predators: An illustration of a logistic approach.</td><td>Journal of Insect Science</td><td>2005</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Kin recognition and avoidance of kin cannibalism in aphidophagous ladybirds: a laboratory study</td><td>European Journal of Entomology</td><td>2005</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Development and immature survival of two aphidophagous ladybirds, Coelophora biplagiata and Micraspis discolor</td><td>Insect Science</td><td>2005</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Intrinsic advantages of a ladybird, Cheilomenes sexmaculata over the relatively bigger two co-occurring Coccinella species</td><td>Insect Science</td><td>2005</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Mating Behaviour of an aphidophagous ladybird beetle, Propylea dissecta (Mulsant).</td><td>Insect Science</td><td>2005</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Role of chemicals in egg cannibalism and intraguild predation by neonates of two generalist ladybirds, Propylea dissecta and Coccinella transversalis</td><td>Journal of Applied Entomology</td><td>2004</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Temperature Dependent development and immature survival of an aphidophagous ladybeetle, Propylea dissecta</td><td>Journal of Applied Entomology</td><td>2004</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>The role of food and conspecific chemicals in avoiding cannibalism by the larvae of a ladybird, Propylea dissecta</td><td>Journal of Applied Entomology</td><td>2003</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Sex-biased larval cannibalism in an aphidophagous ladybird, Propylea dissecta</td><td>Current Science</td><td>2003</td><td>National Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Influence of diet on the development, reproduction and prey consumption of a ladybird beetle, Propylea dissecta (Mulsant)</td><td>Journal of Applied Entomology</td><td>2002</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Male-biased brood sex ratio in an aphidophagous ladybird beetle, Propylea dissecta (Mulsant)</td><td>Current Science</td><td>2002</td><td>National Journal</td><td>Scopus/Web of Science</td></tr>
+                            <tr><td>Journal</td><td>Inter and intra-sexual predation and cannibalism by the adults of a ladybird beetle, Propylea dissecta (Mulsant)</td><td>Entomologia Experimentalis et Applicata</td><td>2001</td><td>International Journal</td><td>Scopus/Web of Science</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="content-section">
+            <h2>Projects</h2>
+            <ul>
+                <li><strong>SERC-FAST TRACK YOUNG SCIENTIST RESEARCH PROJECT</strong> funded by Department of Science and Technology, New Delhi.</li>
+                <li><strong>FIVE</strong> other research projects completed.</li>
+            </ul>
+        </section>
+
+        <section id="experience" class="content-section">
+            <h2>Experience</h2>
+            <ul>
+                <li><strong>Teaching Experience:</strong> Eighteen Years and Four Months.</li>
+                <li><strong>Research Experience:</strong> Twenty Four Years and Four Months.</li>
+                <li><strong>Research Positions held:</strong>
+                    <ul>
+                        <li>Principal Investigator, SERC-FAST TRACK YOUNG SCIENTIST RESEARCH PROJECT funded by Department of Science and Technology, New Delhi.</li>
+                        <li>Research Associate, C.S.I.R., New Delhi.</li>
+                        <li>Senior Research Fellow (Ext.) C.S.I.R.</li>
+                        <li>Research Assistant in a CST, UP research project.</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section id="awards" class="content-section">
+            <h2>Awards</h2>
+            <ul>
+                <li><strong>Excellent Teacher Award</strong> (2022)</li>
+                <li><strong>Bhakt Darshan Higher Education Honour Award</strong> (2022)</li>
+                <li><strong>Young Scientist Award in Zoology</strong> from USSTC.</li>
+                <li><strong>First Prize</strong> in a National Seminar at Dehradun (2012)</li>
+                <li><strong>First Prize</strong> in the Orientation Programme in ASC, University of Lucknow (2007)</li>
+            </ul>
+        </section>
+
+        <section id="contact" class="content-section">
+            <h2>Contact</h2>
+            <div class="contact-info">
+                <p>Email: <a href="mailto:ahmadpervez@yahoo.com">ahmadpervez@yahoo.com</a></p>
+                <p>Mobile: 9368964587</p>
+            </div>
+            <a href="Ahmad_Pervez_CV.pdf" class="btn download-button" download>
+                <i class="fas fa-download me-2"></i> Download CV
+            </a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Prof. Ahmad Pervez. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</body>
+</html>
